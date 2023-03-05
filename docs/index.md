@@ -66,6 +66,35 @@ Kekurangan: <br>
 - Kawasan terbatas hanya di luar negeri <br>
 Key Competitive Advantage and Unique Value: Adanya fitur chatbot yang dapat mempermudah pengguna untuk mendapatkan informasi seputar harga rumah dan prediksi harga rumah <br>
 
+## Jawaban Modul 2 
+### **Tujuan dari produk:** <br> 
+Website yang dapat memberikan prediksi harga rumah berdasarkan lokasi, luas tanah, dan luas bangunan disertai fitur chatbot untuk mempermudah pengguna untuk mendapatkan rekomendasi dan keterangan mengenai prediksi harga rumah. <br>
+
+### **Pengguna potensial dan kebutuhan pengguna:** <br>
+- Investor yang ingin mengetahui harga rumah untuk investasi <br>
+- Calon pembeli rumah yang ingin mengetahui harga rumah <br>
+
+### **Use case diagram:** <br>
+<img src="use case findmycasa.png" alt="Use Case">
+
+
+### **Functional requirement:** <br>
+Functional Requirement <br>
+- Prediksi harga <br>
+Pengguna dapat memasukkan data luas tanah, luas bangunan, jumlah kamar tidur, jumlah kamar mandi, dan garasi pada website. Kemudian, website akan memberikan prediksi range harga rumah melalui model prediksi.<br>
+
+- Chatbot <br> 
+Pengguna dapat memberikan pertanyaan seputar prediksi harga rumah. Kemudian, sistem akan memberikan jawaban dari pertanyaan pengguna. <br>
+
+
+### **Entity Relationship Diagram:** <br>
+<img src="ERD.jpg" alt="ERD">
+
+### **Low Fidelity wireframe: ** <br>
+
+### **Gantt-Chart pengembangan: ** <br>
+<img src="Gantt-Chart.png" alt="Gantt Chard">
+
 
 
 
