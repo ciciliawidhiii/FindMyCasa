@@ -90,10 +90,10 @@ Pengguna dapat memberikan pertanyaan seputar prediksi harga rumah. Kemudian, sis
 ### **Entity Relationship Diagram:** <br>
 <img src="ERD.jpg" alt="ERD">
 
-### **Low Fidelity wireframe: ** <br>
+### **Low Fidelity wireframe:** <br>
 
-### **Gantt-Chart pengembangan: ** <br>
-<img src="Gantt-Chart.png" alt="Gantt Chard">
+### **Gantt-Chart pengembangan:** <br>
+<img src="Gantt-Chart .png" alt="Gantt Chard">
 
 
 
