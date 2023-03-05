@@ -1,0 +1,5 @@
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+- jekyll-remote-theme
+title: FindMyCasa
+description: Aplikasi website yang dapat memberikan prediksi harga rumah disertai dengan fitur chatbot yang mempermudah pengguna untuk mendapatkan rekomendasi dan keterangan mengenai prediksi harga rumah
