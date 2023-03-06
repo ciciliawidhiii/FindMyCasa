@@ -91,6 +91,15 @@ Pengguna dapat memberikan pertanyaan seputar prediksi harga rumah. Kemudian, sis
 <img src="ERD.jpg" alt="ERD">
 
 ### **Low Fidelity wireframe:** <br>
+**Homepage FindMyCasa**<br>
+<img src="Homepage FindMyCasa.png" alt="Homepage"> <br>
+**Homepage FindMyCasa**<br>
+<img src="Homepage FindMyCasa.png" alt="Homepage"> <br>
+**Page input data untuk mendapatkan prediksi rumah**<br>
+<img src="Input Data.png" alt="Input Data"> <br>
+**Page Chatbot**<br>
+<img src="Chatbot.png" alt="Chatbot"> <br>
+
 
 ### **Gantt-Chart pengembangan:** <br>
 <img src="Gantt-Chart .png" alt="Gantt Chard">
