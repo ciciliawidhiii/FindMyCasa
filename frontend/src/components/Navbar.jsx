@@ -10,7 +10,7 @@ export default function Navbar() {
     <> 
       <nav class=" bg-hijau">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <img onClick= {() => navigate("/")} src= {LogoCasa} class= "h-8 mr-3" alt="FindMyCasa Logo" />
+          <img onClick= {() => navigate("/")} src= {LogoCasa} class= "h-12 mr-3" alt="FindMyCasa Logo" />
           <div className="buttons">
             <button onClick={() => navigate("/Main")}>Looking for Casa?</button>
             <button>Ask me Anything!</button>
