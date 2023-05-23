@@ -115,6 +115,7 @@ function Main() {
             </label>
           </div>
         </div>
+        <button className="bg-hijau border rounded-md px-5 py-3 font-semibold text-white hover:bg-hijau-tua hover:text-white">House Price</button>
         <footer>
           <p>About Us</p>
           <p>Contact</p>
