@@ -1,7 +1,5 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import logo from './logo_FMC.png';
-import img from './img_01.png';
 import './App.css';
 
 function Main() {
