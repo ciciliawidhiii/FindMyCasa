@@ -1,6 +1,7 @@
 import Landing from "./pages/Landing"
 import Error from "./pages/Error"
 import Main from "./pages/Main"
+import Chatbot from "./pages/Chatbot"
 import {
   BrowserRouter,
   Routes,
@@ -18,6 +19,7 @@ function App() {
             <Route path='/' element={<Landing/>}/>
             <Route path='*' element={<Error/>}/>
             <Route path='/Main' element={<Main/>}/>
+            <Route path='/Chatbot' element={<Chatbot/>}/>
           </Route>
         </Routes>
         </BrowserRouter>

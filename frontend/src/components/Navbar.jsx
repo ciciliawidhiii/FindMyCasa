@@ -2,6 +2,7 @@ import React from "react";
 import LogoCasa from "../assets/LogoCasa.png";
 import './Navbar.css'
 import Main from "../pages/Main";
+import Chatbot from "../pages/Chatbot";
 import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
@@ -13,7 +14,7 @@ export default function Navbar() {
           <img onClick= {() => navigate("/")} src= {LogoCasa} class= "h-12 mr-3" alt="FindMyCasa Logo" />
           <div className="buttons">
             <button onClick={() => navigate("/Main")}>Looking for Casa?</button>
-            <button>Ask me Anything!</button>
+            <button onClick={() => navigate("/Chatbot")}>Ask me Anything!</button>
           </div>
         </div>
       </nav>
