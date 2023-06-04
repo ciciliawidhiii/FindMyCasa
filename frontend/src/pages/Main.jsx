@@ -1,8 +1,42 @@
+import { useState } from 'react';
 import React from 'react';
 import Navbar from '../components/Navbar';
 import './App.css';
+import axios from "axios";
+import { toast } from "react-toastify";
 
 function Main() {
+  const [landArea, setLandArea] = useState("");
+  const [buildingArea, setBuildingArea] = useState("");
+  const [bedrooms, setBedrooms] = useState("");
+  const [bathrooms, setBathrooms] = useState("");
+  const [garage, setGarage] = useState("");
+
+  const onSubmit = async () => {
+    if (landArea === "" || buildingArea === "" || bedrooms === "" || bathrooms === "" || garage === ""){
+      toast.error("All field must be filled!");
+      console.log("All field must be filled!")
+    } else {
+      axios 
+        .get("http://127.0.0.1:5000/prediction?/", {
+          LT: landArea,
+          LB: buildingArea,
+          JKT: bedrooms,
+          JKM: bathrooms,
+          GRS: garage,
+        })
+        .then((res)=> {
+          if(res.status <400) {
+            toast.success("Prediction Success!");
+          }
+          console.log(res.headers);
+        })
+        .catch((err) => {
+          console.log(err.response);
+        });  
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -13,109 +47,72 @@ function Main() {
           Tell us about your preferences, and let the mirror on the wall tells you
           the truth!
         </p>
-        <div className="dropdown-container">
-          <div className="dropdown">
-          <br />
-          <label htmlFor="year">Year:</label>
-            <select id="dropdown">
-                <option value=""></option>
-                <option value="1987">1987</option>
-                <option value="1987">1987</option>
-                <option value="1988">1988</option>
-                <option value="1989">1989</option>
-                <option value="1990">1990</option>
-                <option value="1991">1991</option>
-                <option value="1992">1992</option>
-                <option value="1993">1993</option>
-                <option value="1994">1994</option>
-                <option value="1995">1995</option>
-                <option value="1996">1996</option>
-                <option value="1997">1997</option>
-                <option value="1998">1998</option>
-                <option value="1999">1999</option>
-                <option value="2000">2000</option>
-                <option value="2001">2001</option>
-                <option value="2002">2002</option>
-                <option value="2003">2003</option>
-                <option value="2004">2004</option>
-                <option value="2005">2005</option>
-                <option value="2006">2006</option>
-                <option value="2007">2007</option>
-                <option value="2008">2008</option>
-                <option value="2009">2009</option>
-                <option value="2010">2010</option>
-                <option value="2011">2011</option>
-                <option value="2012">2012</option>
-                <option value="2013">2013</option>
-                <option value="2014">2014</option>
-                <option value="2015">2015</option>
-                <option value="2016">2016</option>
-                <option value="2017">2017</option>
-                <option value="2018">2018</option>
-                <option value="2019">2019</option>
-            </select>
-          </div>
+        <label className= "text-lg text-black"> Land Area: </label>
+        <input
+          className= "border border-black h-[5vh]  px-4 rounded-md shadow-md mb-6"
+          placeholder= "input land area"
+          type="text"
+          required
+          value={landArea}
+          onChange={(event) => setLandArea(event.target.value)}
+        />
+        <br></br>
+        <label className= "text-lg text-black"> Building Area: </label>
+        <input
+          className= "border border-black h-[5vh]  px-4 rounded-md shadow-md mb-6"
+          placeholder= "input building area"
+          type="text"
+          required
+          value={buildingArea}
+          onChange={(event) => setBuildingArea(event.target.value)}
+        />
+        <br></br>
+        <label className= "text-lg text-black"> Number of Bedrooms: </label>
+        <input
+          className= "border border-black h-[5vh]  px-4 rounded-md shadow-md mb-6"
+          placeholder= "input number of bedrooms"
+          type="text"
+          required 
+          value={bedrooms}
+          onChange={(event) => setBedrooms(event.target.value)}
+        />
+        <br></br>
+        <label className= "text-lg text-black"> Number of Bathrooms: </label>
+        <input
+          className= "border border-black h-[5vh]  px-4 rounded-md shadow-md mb-6"
+          placeholder= "input number of bathrooms"
+          type="text"
+          required
+          value={bathrooms}
+          onChange={(event) => setBathrooms(event.target.value)}
+        />
+        <br></br>
+        <label className= "text-lg text-black"> Existing Garage: </label>
+        <input
+          className= "border border-black h-[5vh]  px-4 rounded-md shadow-md mb-6"
+          placeholder= "input garage"
+          type="text"
+          required
+          value={garage}
+          onChange={(event) => setGarage(event.target.value)}
+        />
+        <p>
+          Existing garage: type 1 if garage exist and type 0 if garage doesnt exist
+        </p>
+        <br></br>
+
+        
+        <button 
+          className="bg-hijau border rounded-md px-5 py-3 font-semibold text-white hover:bg-hijau-tua hover:text-white" 
+          onClick ={onSubmit}
+          type="button"
+          >
+            House Price
+        </button>
+
+        <div className="result">
+          <label className= "text-lg text-black"> Estimated Price: </label>
         </div>
-        <br />
-        <div className="dropdown">
-          <label htmlFor="land-area">Land Area:</label>
-          <select id="land-area" name="land-area">
-            <option value=""></option>
-            <option value="1000">1,000 sqm</option>
-            <option value="2000">2,000 sqm</option>
-            <option value="5000">5,000 sqm</option>
-            <option value="10000">10,000 sqm</option>
-          </select>
-          <br />
-          <br />
-          <label htmlFor="building-area">Building Area: </label>
-          <select id="building-area" name="building-area">
-            <option value=""></option>
-            <option value="Jakarta Selatan">Jakarta Selatan</option>
-            <option value="Jakatra Utara">Jakatra Utara</option>
-            <option value="Jakarta Timur">Jakarta Timur</option>
-            <option value="Jakarta Barat">Jakarta Barat</option>
-            <option value="Jakarta Pusat">Jakarta Pusat</option>
-          </select>
-          <br />
-          <br />
-          <label htmlFor="bedrooms">Bedrooms:</label>
-          <select id="bedrooms" name="bedrooms">
-            <option value=""></option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-          <br />
-          <br />
-          <label htmlFor="bathrooms">Bathrooms:</label>
-          <select id="bathrooms" name="bathrooms">
-            <option value=""></option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </div>
-        <br />
-        <br />
-        <div className="radio-container">
-          <div className="radio-group">
-            <span>Garage:</span>
-            <label>
-              <input type="radio" name="garage" value="yes" />
-              Yes
-            </label>
-            <label>
-              <input type="radio" name="garage" value="no" />
-              No
-            </label>
-          </div>
-        </div>
-        <button className="bg-hijau border rounded-md px-5 py-3 font-semibold text-white hover:bg-hijau-tua hover:text-white">House Price</button>
         <footer>
           <p>About Us</p>
           <p>Contact</p>
