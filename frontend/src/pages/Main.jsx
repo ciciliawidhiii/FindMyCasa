@@ -116,7 +116,9 @@ function Main() {
         </button>
 
         <div className="result">
-          <label className= "text-lg text-black"> Estimated Price: {prediction} </label>
+          <label className="text-lg text-black">
+            Estimated Price: {prediction !== undefined && prediction.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}
+          </label>
         </div>
         <footer>
           <p>About Us</p>
