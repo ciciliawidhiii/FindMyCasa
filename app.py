@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, Response, jsonify
 import numpy as np 
 import sklearn
+from flask_cors import CORS
 
 app = Flask(__name__)
 
 import pickle 
 regressor = pickle.load(open('model_lr.pkl', 'rb'))
+CORS(regressor)
 
 #@app.route("/Main")
 #def hello_world(request):
