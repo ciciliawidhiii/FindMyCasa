@@ -5,12 +5,14 @@ import './App.css';
 import axios from "axios";
 import { toast } from "react-toastify";
 
+
 function Main() {
-  const [landArea, setLandArea] = useState("");
-  const [buildingArea, setBuildingArea] = useState("");
-  const [bedrooms, setBedrooms] = useState("");
-  const [bathrooms, setBathrooms] = useState("");
-  const [garage, setGarage] = useState("");
+  const [landArea, setLandArea] = useState(0);
+  const [buildingArea, setBuildingArea] = useState(0);
+  const [bedrooms, setBedrooms] = useState(0);
+  const [bathrooms, setBathrooms] = useState(0);
+  const [garage, setGarage] = useState(0);
+  const [prediction, setPrediction] = useState();
 
   const onSubmit = async () => {
     if (landArea === "" || buildingArea === "" || bedrooms === "" || bathrooms === "" || garage === ""){
@@ -18,18 +20,21 @@ function Main() {
       console.log("All field must be filled!")
     } else {
       axios 
-        .get("http://127.0.0.1:5000/prediction?/", {
+        .get("http://127.0.0.1:5000/prediction", {
+        params: {
           LT: landArea,
           LB: buildingArea,
           JKT: bedrooms,
           JKM: bathrooms,
           GRS: garage,
-        })
-        .then((res)=> {
-          if(res.status <400) {
+        },
+      }) 
+        .then((response)=> {
+          if(response.status <400) {
             toast.success("Prediction Success!");
+            setPrediction(response.data.result)
           }
-          console.log(res.headers);
+          console.log(response);
         })
         .catch((err) => {
           console.log(err.response);
@@ -51,7 +56,7 @@ function Main() {
         <input
           className= "border border-black h-[5vh]  px-4 rounded-md shadow-md mb-6"
           placeholder= "input land area"
-          type="text"
+          type="number"
           required
           value={landArea}
           onChange={(event) => setLandArea(event.target.value)}
@@ -61,7 +66,7 @@ function Main() {
         <input
           className= "border border-black h-[5vh]  px-4 rounded-md shadow-md mb-6"
           placeholder= "input building area"
-          type="text"
+          type="number"
           required
           value={buildingArea}
           onChange={(event) => setBuildingArea(event.target.value)}
@@ -71,7 +76,7 @@ function Main() {
         <input
           className= "border border-black h-[5vh]  px-4 rounded-md shadow-md mb-6"
           placeholder= "input number of bedrooms"
-          type="text"
+          type="number"
           required 
           value={bedrooms}
           onChange={(event) => setBedrooms(event.target.value)}
@@ -81,7 +86,7 @@ function Main() {
         <input
           className= "border border-black h-[5vh]  px-4 rounded-md shadow-md mb-6"
           placeholder= "input number of bathrooms"
-          type="text"
+          type="number"
           required
           value={bathrooms}
           onChange={(event) => setBathrooms(event.target.value)}
@@ -91,7 +96,7 @@ function Main() {
         <input
           className= "border border-black h-[5vh]  px-4 rounded-md shadow-md mb-6"
           placeholder= "input garage"
-          type="text"
+          type="number"
           required
           value={garage}
           onChange={(event) => setGarage(event.target.value)}
@@ -111,7 +116,7 @@ function Main() {
         </button>
 
         <div className="result">
-          <label className= "text-lg text-black"> Estimated Price: </label>
+          <label className= "text-lg text-black"> Estimated Price: {prediction} </label>
         </div>
         <footer>
           <p>About Us</p>

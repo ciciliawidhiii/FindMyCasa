@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, Response
+from flask import Flask, render_template, request, redirect, url_for, flash, Response, jsonify
 import numpy as np 
 import sklearn
 
@@ -29,10 +29,9 @@ def index():
 
     result = regressor.predict([[LT, LB, JKT, JKM, GRS]])
 
-
     res = {
-        'result': result[0]
+    'result': result[0]
     }
-    return res
+    return jsonify(res)
     #return Response(result, mimetype='application/json')
 
