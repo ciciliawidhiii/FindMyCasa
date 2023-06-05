@@ -120,13 +120,13 @@ function Main() {
             Estimated Price: {prediction !== undefined && prediction.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}
           </label>
         </div>
-        <footer>
-          <p>About Us</p>
-          <p>Contact</p>
-          <p>Privacy Policy</p>
-          <p>Terms and Conditions</p>
-        </footer>
       </div>
+      <footer>
+        <p>About Us</p>
+        <p>Contact</p>
+        <p>Privacy Policy</p>
+        <p>Terms and Conditions</p>
+      </footer>
     </>
   );
 }
