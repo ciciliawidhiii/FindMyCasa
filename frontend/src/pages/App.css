@@ -108,6 +108,7 @@
     width: 100%;
     background-color: #F5F5DC;
     padding: 5px;
+    text-align: center;
   }
   .image-container {
     display: flex;
