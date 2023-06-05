@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 import pickle 
 regressor = pickle.load(open('model_lr.pkl', 'rb'))
-CORS(regressor)
+
 
 #@app.route("/Main")
 #def hello_world(request):
