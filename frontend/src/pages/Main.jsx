@@ -20,7 +20,7 @@ function Main() {
       console.log("All field must be filled!")
     } else {
       axios 
-        .get("http://127.0.0.1:5000/prediction", {
+        .get("https://ciciliawidhiii.pythonanywhere.com/prediction", {
         params: {
           LT: landArea,
           LB: buildingArea,
